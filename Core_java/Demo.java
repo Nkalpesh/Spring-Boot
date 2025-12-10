@@ -17,7 +17,7 @@
 // //camel casing 
 
 // //class Calc ...in class 
-// // INHERITANCE
+// //
   public static void main(String[] args) { 
     Calc obj = new Calc();
     int r1 = obj.add(5, 6);
