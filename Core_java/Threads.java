@@ -1,29 +1,38 @@
-class Hi extends Threads
+class Counter
 {
-    public void show()
+    int count;
+    public synchronized void increment()    // meaning of synchronized is the delivered one thread in one time not both in same time
     {
-        for(int i= 1; i <=10; i++){
-            System.out.println("Hii");
+        count++;
+    }
+}
 
-        }
-    }
-}
-class Hello extends Threads
-{
-    public void show()
-    {
-        for(int i= 1; i <=10; i++){
-            System.out.println("HELLO");
-        }
-    }
-}
-public class Threads {
-    public static void main(String[] args) throws ClassNotFoundException {
-        Hi obj1 = new Hi();
-        Hello obj2 = new Hello();
-        System.out.println(obj1.getPriority());
-        obj1.show();
-        obj2.show();
+
+public class Threads{
+    public static void main(String[] args) throws InterruptedException {
+        Counter c = new Counter();
+
+        Runnable obj1 = () ->
+        {
+            for(int i= 1; i <=10000; i++){
+                c.increment();
+            }
+        };
+
+
+        Runnable obj2 = () ->
+        {
+            for(int i= 1; i <=10000; i++){
+                c.increment();
+            }
+        };
+        Thread t1 = new Thread(obj1);
+        Thread t2 = new Thread(obj2);
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+        System.out.println(c.count);
 
     }
 
