@@ -1,23 +1,23 @@
 class A 
 {
-    public void show()
+    public void show() throws ClassNotFoundException    //pervious only has show() after the throws classnotfoundexpection is add for the output
     {
-        try{
+       
             Class.forName("Throws");
-        }
-        catch(ClassNotFoundException e){
-            System.out.println("not able to find the class");
-
-        }
+       
     }
 }
 public class Throws {
     static {
         System.out.println("class loaded");
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) { // show() give you error the darg the show if you want to throw expection
         A obj = new A();
-        obj.show();
+        try {
+            obj.show();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     
 }
