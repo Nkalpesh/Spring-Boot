@@ -64,15 +64,16 @@ public class Collection {
         // Stream<Integer> s2 = s1.filter(n -> n%2 ==0);
         // Stream<Integer> s3 =  s2.map(n -> n*2);
         // int result = s3.reduce(0, (c,e) -> c+e);
-
-       int result= nums.stream()
+        
+       Stream<Integer> sortedValues= nums.parallelStream()   //you can used parallelstream fro multiple threads in it
                        .filter(n -> n%2==0)
-                       .map(n -> n*2)
-                       .reduce(0, (c,e) -> c+e);
+                       .sorted();
+                    //    .map(n -> n*2)
+                    //    .reduce(0, (c,e) -> c+e);
+                    sortedValues.forEach(n -> System.out.println(n));
 
 
-
-            System.out.println(result);                   
+            // System.out.println(result);                  
         
          //s1.forEach(n -> System.out.println(n));
             
