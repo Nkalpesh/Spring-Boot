@@ -1,4 +1,4 @@
-public class main {
+public class Enum {
     enum Day {
         SUNDAY,
         MONDAY,
@@ -9,7 +9,7 @@ public class main {
         SATURDAY
     }
     public static void main(String[] args) {
-        Day today = Day.WEDNESDAY;
+        Day today = Day.SATURDAY;
 
         switch (today) {
             case SUNDAY:

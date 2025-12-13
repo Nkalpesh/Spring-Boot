@@ -6,17 +6,21 @@ abstract class Car //abstract class
         System.out.println("play music");
     }
 }
-class WagonR extends Car{
+abstract class WagonR extends Car{
 
     public void drive() {
          System.out.println("in drive");
     }
 
 }
+class bike extends WagonR{
+
+
+}
 public class AbstractKeywords
 {
     public static void main(String[] args) {
-        Car obj = new WagonR();  // you didnt take the abstract class as a making of object
+        Car obj = new bike();  // you didnt take the abstract class as a making of object
         obj.drive();
         obj.playmusic();
     }

@@ -12,7 +12,7 @@ public class Collection {
         // {
         //     public int compare(Integer i, Integer j)
         //     {
-        //         if(i%10 > j%10){
+        //         if(i%10 > j%10){ // compare the last digit in number
         //             return 1;
         //         }else{
         //             return -1;
@@ -43,39 +43,40 @@ public class Collection {
         //         // TODO Auto-generated method stub
         //         throw new UnsupportedOperationException("Unimplemented method 'compare'");
         //     }
-        // };
-        // List<String> str = new ArrayList<>();
-        // str.add(0,"kalpesh");
-        // str.add(1, "Ishant");
-        // str.add(2,"om");
-        // str.add(3, "chetan");
-        // str.add(4,"Niraj");
-        // str.add(5, "Dheeraj");
-        // // Collections.sort(str);
-        // // for(String n : str ){
-        // //    System.out.println(str);
+    // };
+    // List<String> str = new ArrayList<>();
+    // str.add(0,"kalpesh");
+    // str.add(1, "Ishant");
+    // str.add(2,"om");
+    // str.add(3, "chetan");
+    // str.add(4,"Niraj");
+    // str.add(5, "Dheeraj");
+    // Collections.sort(str,com);
+    // for(String n : str ){
+    //    System.out.println(str);
 
-        // // }
-        // str.forEach(n ->System.out.println(n));
-        
+    //  }
+    // str.forEach(n ->System.out.println(n));
+
          List<Integer> nums = Arrays.asList(4,8,9,1,10);
+        System.out.println(nums.get(4));
+
+         Stream<Integer> s1 = nums.stream();
+         Stream<Integer> s2 = s1.filter(n -> n%2 ==0);
+         Stream<Integer> s3 =  s2.map(n -> n*2);
+         int result = s3.reduce(0, (c,e) -> c+e);
         
-        // Stream<Integer> s1 = nums.stream();
-        // Stream<Integer> s2 = s1.filter(n -> n%2 ==0);
-        // Stream<Integer> s3 =  s2.map(n -> n*2);
-        // int result = s3.reduce(0, (c,e) -> c+e);
-        
-       Stream<Integer> sortedValues= nums.parallelStream()   //you can used parallelstream fro multiple threads in it
-                       .filter(n -> n%2==0)
-                       .sorted();
-                    //    .map(n -> n*2)
-                    //    .reduce(0, (c,e) -> c+e);
-                    sortedValues.forEach(n -> System.out.println(n));
+    //    int sortedValues= nums.stream()   //you can used parallelstream for multiple threads in it
+    //                    .filter(n -> n%2==0)
+    //                    .sorted()/getter
+    //                    .map(n -> n*2)
+    //                    .reduce(0, (c,e) -> c+e);
+    //                 System.out.println(sortedValues);
 
 
-            // System.out.println(result);                  
+            System.out.println(result);                  
         
-         //s1.forEach(n -> System.out.println(n));
+         s1.forEach(n -> System.out.println(n));
             
          }
         

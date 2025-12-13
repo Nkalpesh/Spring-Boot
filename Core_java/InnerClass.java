@@ -6,7 +6,7 @@ class A
     }
     class B
     {
-        public static void show()
+        public void show()
         {
             System.out.println("in B show");
         }
@@ -19,7 +19,7 @@ public class InnerClass
     public static void main(String[] args) {
         A obj = new A();
         obj.show();
-        A.B obj1 = obj.new B();
+        A.B obj1 = obj.new B(); // method of writting inner class A.B and obj.new B()
         obj1.show();
     }
 }
