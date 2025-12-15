@@ -1,5 +1,5 @@
-class MyRunnable implements Runnable {
-    @Override
+class MyRunnable implements Runnable { //is a class of Runnable
+    @Override //anntotation
     public void run() {
         System.out.println("Thread running: " + Thread.currentThread().getName());
     }
